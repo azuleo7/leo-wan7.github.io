@@ -4,7 +4,7 @@ title:     "VGG论文翻译——中文版"
 subtitle:    "VGG——translate"
 date:       2020-04-08
 author:     Leo Wong
-header-img: img/art-Anaconda-TensorFlow.jpg
+header-img: img/post-bg-desk.jpg
 catalog: true
 tags:
 
