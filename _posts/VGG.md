@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "VGG论文翻译——中文版"
-subtitle:   "VGG——translate"
+subtitle:   "VGG论文"
 date:       2021-04-08 15:45:00
 author:     "Leo"
 catalog: false
