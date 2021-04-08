@@ -12,7 +12,7 @@ tags:
  
 ---
 
-![Image text](https://github.com/leo-wan7/leo-wan7.github.io/blob/master/img/deep1.png)
+![homepage](/img/deep1.png)
 
 Very Deep Convolutional Networks for Large-Scale Image Recognition
 摘要
@@ -41,11 +41,11 @@ Very Deep Convolutional Networks for Large-Scale Image Recognition
 
 表1：ConvNet配置（以列显示）。随着更多的层被添加，配置的深度从左（A）增加到右（E）（添加的层以粗体显示）。卷积层参数表示为“conv⟨感受野大小⟩-通道数⟩”。为了简洁起见，不显示ReLU激活功能。
 
-![Image text](https://github.com/leo-wan7/leo-wan7.github.io/blob/master/img/ta1.png)
+![homepage](/img/ta1.png)
 在表2中，我们报告了每个配置的参数数量。尽管深度很大，我们的网络中权重数量并不大于具有更大卷积层宽度和感受野的较浅网络中的权重数量（144M的权重在（Sermanet等人，2014）中）。
 
 表2：参数数量（百万级别）
-![Image text](https://github.com/leo-wan7/leo-wan7.github.io/blob/master/img/ta2.png)
+![homepage](/img/ta2.png)
 2.3 讨论
 我们的ConvNet配置与ILSVRC-2012（Krizhevsky等，2012）和ILSVRC-2013比赛（Zeiler＆Fergus，2013；Sermanet等，2014）表现最佳的参赛提交中使用的ConvNet配置有很大不同。不是在第一卷积层中使用相对较大的感受野（例如，在（Krizhevsky等人，2012）中的11×11，步长为4，或在（Zeiler＆Fergus，2013；Sermanet等，2014）中的7×7，步长为2），我们在整个网络使用非常小的3×3感受野，与输入的每个像素（步长为1）进行卷积。很容易看到两个3×3卷积层堆叠（没有空间池化）有5×5的有效感受野；三个这样的层具有7×7的有效感受野。那么我们获得了什么？例如通过使用三个3×3卷积层的堆叠来替换单个7×7层。首先，我们结合了三个非线性修正层，而不是单一的，这使得决策函数更具判别性。其次，我们减少参数的数量：假设三层3×3卷积堆叠的输入和输出有C个通道，堆叠卷积层的参数为3(32C2)=27C2个权重；同时，单个7×7卷积层将需要72C2=49C2个参数，即参数多81％。这可以看作是对7×7卷积滤波器进行正则化，迫使它们通过3×3滤波器（在它们之间注入非线性）进行分解。
 
@@ -86,7 +86,7 @@ ConvNet训练过程通常遵循Krizhevsky等人（2012）（除了从多尺度�
 我们首先评估单个ConvNet模型在单尺度上的性能，其层结构配置如2.2节中描述。测试图像大小设置如下：对于固定S的Q=S，对于抖动S∈[Smin,Smax]，Q=0.5(Smin+Smax)。结果如表3所示。
 
 表3：在单测试尺度的ConvNet性能
-![Image text](https://github.com/leo-wan7/leo-wan7.github.io/blob/master/img//ta3.png)
+![homepage](/img/ta3.png)
 首先，我们注意到，使用局部响应归一化（A-LRN网络）在没有任何归一化层的情况下，对模型A没有改善。因此，我们在较深的架构（B-E）中不采用归一化。
 
 第二，我们观察到分类误差随着ConvNet深度的增加而减小：从A中的11层到E中的19层。值得注意的是，尽管深度相同，配置C（包含三个1×1卷积层）比在整个网络层中使用3×3卷积的配置D更差。这表明，虽然额外的非线性确实有帮助（C优于B），但也可以通过使用具有非平凡感受野（D比C好）的卷积滤波器来捕获空间上下文。当深度达到19层时，我们架构的错误率饱和，但更深的模型可能有益于较大的数据集。我们还将网络B与具有5×5卷积层的浅层网络进行了比较，浅层网络可以通过用单个5×5卷积层替换B中每对3×3卷积层得到（其具有相同的感受野如第2.3节所述）。测量的浅层网络top-1错误率比网络B的top-1错误率（在中心裁剪图像上）高7％，这证实了具有小滤波器的深层网络优于具有较大滤波器的浅层网络。
@@ -99,25 +99,25 @@ ConvNet训练过程通常遵循Krizhevsky等人（2012）（除了从多尺度�
 表4中给出的结果表明，测试时的尺度抖动导致了更好的性能（与在单一尺度上相同模型的评估相比，如表3所示）。如前所述，最深的配置（D和E）执行最佳，并且尺度抖动优于使用固定最小边S的训练。我们在验证集上的最佳单网络性能为24.8％/7.5％ top-1/top-5的错误率（在表4中用粗体突出显示）。在测试集上，配置E实现了7.3％ top-5的错误率。
 
 表4：在多个测试尺度上的ConvNet性能
-![Image text](https://github.com/leo-wan7/leo-wan7.github.io/blob/master/img/ta4.png)
+![homepage](/img/ta4.png)
 4.3 多裁剪图像评估
 在表5中，我们将稠密ConvNet评估与多裁剪图像评估进行比较（细节参见第3.2节）。我们还通过平均其soft-max输出来评估两种评估技术的互补性。可以看出，使用多裁剪图像表现比密集评估略好，而且这两种方法确实是互补的，因为它们的组合优于其中的每一种。如上所述，我们假设这是由于卷积边界条件的不同处理。
 
 表5：ConvNet评估技术比较。在所有的实验中训练尺度S从[256；512]采样，三个测试适度Q考虑：{256, 384, 512}。
-![Image text](https://github.com/leo-wan7/leo-wan7.github.io/blob/master/img/ta5.png)
+![homepage](/img/ta5.png)
 4.4 卷积网络融合
 到目前为止，我们评估了ConvNet模型的性能。在这部分实验中，我们通过对soft-max类别后验进行平均，结合了几种模型的输出。由于模型的互补性，这提高了性能，并且在了2012年（Krizhevsky等，2012）和2013年（Zeiler＆Fergus，2013；Sermanet等，2014）ILSVRC的顶级提交中使用。
 
 结果如表6所示。在ILSVRC提交的时候，我们只训练了单规模网络，以及一个多尺度模型D（仅在全连接层进行微调而不是所有层）。由此产生的7个网络组合具有7.3％的ILSVRC测试误差。在提交之后，我们考虑了只有两个表现最好的多尺度模型（配置D和E）的组合，它使用密集评估将测试误差降低到7.0％，使用密集评估和多裁剪图像评估将测试误差降低到6.8％。作为参考，我们表现最佳的单模型达到7.1％的误差（模型E，表5）。
 
 表6：多个卷积网络融合结果
-![Image text](https://github.com/leo-wan7/leo-wan7.github.io/blob/master/img//ta6.png)
+![homepage](/img/ta6.png)
 4.5 与最新技术比较
 最后，我们在表7中与最新技术比较我们的结果。在ILSVRC-2014挑战的分类任务（Russakovsky等，2014）中，我们的“VGG”团队获得了第二名，
 使用7个模型的组合取得了7.3％测试误差。提交后，我们使用2个模型的组合将错误率降低到6.8％。
 
 表7：在ILSVRC分类中与最新技术比较。我们的方法表示为“VGG”。报告的结果没有使用外部数据。
-![Image text](https://github.com/leo-wan7/leo-wan7.github.io/blob/master/img/ta7.png)
+![homepage](/img/ta7.png)
 从表7可以看出，我们非常深的ConvNets显著优于前一代模型，在ILSVRC-2012和ILSVRC-2013竞赛中取得了最好的结果。我们的结果对于分类任务获胜者（GoogLeNet具有6.7％的错误率）也具有竞争力，并且大大优于ILSVRC-2013获胜者Clarifai的提交，其使用外部训练数据取得了11.2％的错误率，没有外部数据则为11.7％。这是非常显著的，考虑到我们最好的结果是仅通过组合两个模型实现的——明显少于大多数ILSVRC提交。在单网络性能方面，我们的架构取得了最好节果（7.0％测试误差），超过单个GoogLeNet 0.9％。值得注意的是，我们并没有偏离LeCun（1989）等人经典的ConvNet架构，但通过大幅增加深度改善了它。
 
 5 结论
