@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:     "VGG论文翻译——中文版"
-subtitle:    "VGG——translate"
-date:       2020-04-08
+title:     "使用conv2D算子黑白边界检测(Pytorch/Paddlepaddle)"
+subtitle:    "两种框架的尝试"
+date:       2020-04-14
 author:     Leo Wong
-header-img: img/post-bg-desk.jpg
+header-img: img/conv2d.jpg
 catalog: true
 tags:
 
@@ -12,7 +12,6 @@ tags:
  
 ---
 
-![homepage](/img/deep1.png)
 
 ​	下面是分别借助两种Pytorch/Paddlepaddle框架实现使用Conv2D算子完成一个图像边界检测的任务。图像左边为光亮部分，右边为黑暗部分，需要检测出光亮跟黑暗的分界处。
 
