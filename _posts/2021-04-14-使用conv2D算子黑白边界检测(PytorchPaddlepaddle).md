@@ -2,9 +2,9 @@
 layout:     post
 title:     "使用conv2D算子黑白边界检测(Pytorch/Paddlepaddle)"
 subtitle:    "两种框架的尝试"
-date:       2020-04-14
+date:       2021-04-14
 author:     Leo Wong
-header-img: img/conv2d.jpg
+header-img: img/conv2d.png
 catalog: true
 tags:
 
