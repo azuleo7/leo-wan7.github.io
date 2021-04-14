@@ -110,7 +110,7 @@ plt.show()
 
 **输出结果**
 
-![png](file://E:\深度学习项目\学习总结\1.卷积基础\output_12_1.png?lastModify=1618390185)
+![png](img/output_12_1.png)
 
 **总结**
 
