@@ -110,7 +110,7 @@ plt.show()
 
 **输出结果**
 
-![png](img/output_12_1.png)
+![homepage](/img/output_12_1.png)
 
 **总结**
 
